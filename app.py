@@ -51,7 +51,7 @@ elif page == "Exploratory Data Analysis":
     eda_type = st.multiselect("Visualization Options", ['Histograms','Scatterplots', 'Count Plots'])
 
     obj_cols = df[['target']].columns
-    num_cols = df.columns.drop('target', axis = 1)
+    num_cols = df.drop('target', axis = 1).columns
 
     if 'Histograms' in eda_type:
         st.subheader("Histograms - Visualizing Numerical Distributions")
