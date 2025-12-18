@@ -50,8 +50,8 @@ elif page == "Exploratory Data Analysis":
     st.subheader("Select the type of visualization you'd like to explore:")
     eda_type = st.multiselect("Visualization Options", ['Histograms','Scatterplots', 'Count Plots'])
 
-    obj_cols = df['target']
-    num_cols = df.drop('target', axis = 1)
+    obj_cols = df['target'].columns
+    num_cols = df.drop('target', axis = 1).columns
 
     if 'Histograms' in eda_type:
         st.subheader("Histograms - Visualizing Numerical Distributions")
@@ -73,7 +73,7 @@ elif page == "Exploratory Data Analysis":
 
     if 'Count Plots' in eda_type:
         st.subheader("Count Plots - Visualizing Categorical Distributions")
-        selected_col = df['target']
+        selected_col = st.selectbox("Select a categorical variable:", obj_cols)
         if selected_col:
             chart_title = f'Distribution of {selected_col.title()}'
             st.plotly_chart(px.histogram(df, x=selected_col, color='species', title=chart_title))
