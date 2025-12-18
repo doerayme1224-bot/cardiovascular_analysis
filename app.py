@@ -50,7 +50,7 @@ elif page == "Exploratory Data Analysis":
     st.subheader("Select the type of visualization you'd like to explore:")
     eda_type = st.multiselect("Visualization Options", ['Histograms','Scatterplots', 'Count Plots'])
 
-    obj_cols = df.columns.to_list(df['target'].columns)
+    obj_cols = df.columns.to_list(df['target'])
     num_cols = df.columns.to_list(df.drop('target'), axis = 1)
 
     if 'Histograms' in eda_type:
