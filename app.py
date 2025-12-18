@@ -76,4 +76,4 @@ elif page == "Exploratory Data Analysis":
         selected_col = st.selectbox("Select a categorical variable:", obj_cols)
         if selected_col:
             chart_title = f'Distribution of {selected_col.title()}'
-            st.plotly_chart(px.histogram(df, x=selected_col, color='species', title=chart_title))
+            st.plotly_chart(px.histogram(df, x=selected_col, color='target', title=chart_title))
