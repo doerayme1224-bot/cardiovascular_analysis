@@ -73,7 +73,7 @@ elif page == "Exploratory Data Analysis":
 
     if 'Count Plots' in eda_type:
         st.subheader("Count Plots - Visualizing Categorical Distributions")
-        selected_col = st.selectbox("Select a categorical variable:", obj_cols)
+        selected_col = df['target']
         if selected_col:
             chart_title = f'Distribution of {selected_col.title()}'
             st.plotly_chart(px.histogram(df, x=selected_col, color='species', title=chart_title))
